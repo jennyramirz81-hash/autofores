@@ -1,153 +1,96 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector(".site-header");
-  const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelectorAll(".main-nav a, .nav-actions a");
-  const revealItems = document.querySelectorAll(".reveal");
-  const comparisons = document.querySelectorAll("[data-comparison]");
-  const form = document.getElementById("whatsappForm");
-  const formStatus = document.getElementById("formStatus");
-  const currentYear = document.getElementById("currentYear");
-  const whatsappNumber = "573142371493";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-  if (currentYear) {
-    currentYear.textContent = new Date().getFullYear();
-  }
+body {
+  background: #0a0a0a;
+  color: #fff;
+}
 
-  const updateHeader = () => {
-    if (window.scrollY > 20) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  };
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
 
-  updateHeader();
-  window.addEventListener("scroll", updateHeader);
+.header {
+  background: #000;
+  padding: 20px 0;
+  border-bottom: 1px solid #222;
+}
 
-  if (navToggle) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = header.classList.toggle("nav-open");
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
-  }
+.logo {
+  color: #00ff88;
+}
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      header.classList.remove("nav-open");
-      navToggle?.setAttribute("aria-expanded", "false");
-    });
-  });
+.hero {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(#000, #111);
+}
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -40px 0px"
-      }
-    );
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
 
-    revealItems.forEach((item) => observer.observe(item));
-  } else {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-  }
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #00ff88;
+  color: #000;
+  text-decoration: none;
+  margin-top: 20px;
+  border-radius: 5px;
+}
 
-  comparisons.forEach((comparison) => {
-    const range = comparison.querySelector(".comparison-range");
-    const after = comparison.querySelector(".comparison-after");
-    const handle = comparison.querySelector(".comparison-handle");
+.services {
+  padding: 60px 0;
+}
 
-    const updateComparison = () => {
-      const value = Number(range.value);
-      after.style.width = `${value}%`;
-      handle.style.left = `calc(${value}% - 1px)`;
-    };
+.grid {
+  display: flex;
+  gap: 20px;
+}
 
-    range.addEventListener("input", updateComparison);
-    updateComparison();
-  });
+.card {
+  background: #111;
+  padding: 20px;
+  border: 1px solid #222;
+  flex: 1;
+}
 
-  if (form) {
-    const fields = {
-      name: {
-        input: form.querySelector("#name"),
-        validate: (value) => value.trim().length >= 3,
-        message: "Introduce un nombre válido."
-      },
-      phone: {
-        input: form.querySelector("#phone"),
-        validate: (value) => /^\+?\d[\d\s]{7,15}$/.test(value.trim()),
-        message: "Introduce un teléfono válido."
-      },
-      vehicle: {
-        input: form.querySelector("#vehicle"),
-        validate: (value) => value.trim().length >= 3,
-        message: "Indica el vehículo."
-      },
-      service: {
-        input: form.querySelector("#service"),
-        validate: (value) => value.trim() !== "",
-        message: "Selecciona un servicio."
-      },
-      message: {
-        input: form.querySelector("#message"),
-        validate: (value) => value.trim().length >= 12,
-        message: "Describe brevemente tu necesidad."
-      }
-    };
+.contact {
+  padding: 60px 0;
+}
 
-    const setFieldState = (field, isValid) => {
-      const group = field.input.closest(".form-group");
-      const error = group.querySelector(".error-message");
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-      if (isValid) {
-        group.classList.remove("error");
-        error.textContent = "";
-      } else {
-        group.classList.add("error");
-        error.textContent = field.message;
-      }
-    };
+input, textarea, select {
+  padding: 10px;
+  border: none;
+}
 
-    const validateField = (key) => {
-      const field = fields[key];
-      const valid = field.validate(field.input.value);
-      setFieldState(field, valid);
-      return valid;
-    };
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+}
 
-    Object.keys(fields).forEach((key) => {
-      fields[key].input.addEventListener("blur", () => validateField(key));
-      fields[key].input.addEventListener("input", () => {
-        if (fields[key].input.closest(".form-group").classList.contains("error")) {
-          validateField(key);
-        }
-      });
-    });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      formStatus.textContent = "";
-      formStatus.className = "form-status";
-
-      const isValid = Object.keys(fields).every((key) => validateField(key));
-
-      if (!isValid) {
-        formStatus.textContent = "Revisa los campos marcados antes de continuar.";
-        formStatus.classList.add("error");
-        return;
-      }
-
-      const data = {
-        name: fields.name.input.value.trim(),
-        phone: fields.phone.input.value.trim(),
-        vehicle: fields.vehicle.input.value.trim(),
-        service
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
