@@ -3,81 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUTO FORES | Restauración Land Rover Bogotá</title>
 
-  <meta name="description" content="Restauración y reparación especializada Land Rover en Bogotá. Devuelve tu vehículo a su estado original.">
+  <title>AUTO FORES | Restauración Land Rover Bogotá</title>
+  <meta name="description" content="Expertos en restauración y reparación Land Rover en Bogotá. Recupera el valor original de tu vehículo.">
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
 <header class="header">
-  <div class="container">
+  <div class="container nav">
     <h1 class="logo">AUTO FORES</h1>
-    <a href="#contacto" class="btn">Contactar</a>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Antes / Después</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#contacto" class="btn">Diagnóstico</a>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <h2>Tu Land Rover no necesita un taller cualquiera</h2>
-    <p>Lo devolvemos a su estado original o mejor.</p>
+  <div class="container hero-content">
+    <h2>Tu Land Rover no necesita un taller cualquiera.</h2>
+    <h3>Necesita volver a imponerse.</h3>
+    <p>Restauramos, reparamos y devolvemos valor a vehículos clásicos y premium.</p>
+
     <a href="#contacto" class="btn">Solicitar diagnóstico</a>
   </div>
 </section>
 
-<section class="services">
+<section id="servicios" class="section">
   <div class="container">
-    <h2>Servicios</h2>
+    <h2 class="title">Servicios Especializados</h2>
 
-    <div class="grid">
+    <div class="grid-3">
       <div class="card">
-        <h3>Restauración</h3>
-        <p>Recuperamos vehículos clásicos con precisión.</p>
+        <h3>Restauración completa</h3>
+        <p>Recuperación total de vehículos clásicos.</p>
       </div>
 
       <div class="card">
-        <h3>Reparación</h3>
-        <p>Diagnóstico técnico especializado Land Rover.</p>
+        <h3>Reparación técnica</h3>
+        <p>Diagnóstico avanzado Land Rover.</p>
       </div>
 
       <div class="card">
-        <h3>Mantenimiento</h3>
-        <p>Conserva el valor y desempeño de tu vehículo.</p>
+        <h3>Mantenimiento premium</h3>
+        <p>Conserva el valor y rendimiento.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contacto">
+<section id="galeria" class="section dark">
   <div class="container">
-    <h2>Solicita tu diagnóstico</h2>
+    <h2 class="title">Antes / Después</h2>
 
-    <form id="whatsappForm">
-      <input type="text" id="name" placeholder="Nombre" required>
-      <input type="text" id="phone" placeholder="Teléfono" required>
-      <input type="text" id="vehicle" placeholder="Vehículo" required>
+    <div class="grid-2">
+      <div class="gallery-box">Antes</div>
+      <div class="gallery-box">Después</div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="section">
+  <div class="container">
+    <h2 class="title">Solicita tu diagnóstico</h2>
+
+    <form id="whatsappForm" class="form">
+      <input id="name" placeholder="Nombre" required>
+      <input id="phone" placeholder="Teléfono" required>
+      <input id="vehicle" placeholder="Vehículo" required>
 
       <select id="service">
-        <option value="">Selecciona servicio</option>
+        <option value="">Servicio</option>
         <option>Restauración</option>
         <option>Reparación</option>
-        <option>Mantenimiento</option>
       </select>
 
-      <textarea id="message" placeholder="Describe tu necesidad"></textarea>
+      <textarea id="message" placeholder="Describe tu caso"></textarea>
 
-      <button type="submit" class="btn">Ir a WhatsApp</button>
-      <p id="formStatus"></p>
+      <button class="btn">Ir a WhatsApp</button>
     </form>
   </div>
 </section>
 
-<footer>
-  <p>© <span id="currentYear"></span> AUTO FORES</p>
+<footer class="footer">
+  <p>© <span id="year"></span> AUTO FORES</p>
 </footer>
 
-<a href="https://wa.me/573142371493" class="whatsapp" target="_blank">💬</a>
+<a class="whatsapp" href="https://wa.me/573142371493" target="_blank">💬</a>
 
 <script src="js/script.js"></script>
 </body>
