@@ -1,0 +1,31 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#08100C"/>
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <g opacity="0.15">
+    <path d="M0 1060H1600" stroke="#9DB389"/>
+    <path d="M0 980H1600" stroke="#9DB389"/>
+    <path d="M0 900H1600" stroke="#9DB389"/>
+    <path d="M0 820H1600" stroke="#9DB389"/>
+    <path d="M0 740H1600" stroke="#9DB389"/>
+    <path d="M0 660H1600" stroke="#9DB389"/>
+    <path d="M0 580H1600" stroke="#9DB389"/>
+    <path d="M0 500H1600" stroke="#9DB389"/>
+    <path d="M0 420H1600" stroke="#9DB389"/>
+    <path d="M0 340H1600" stroke="#9DB389"/>
+    <path d="M0 260H1600" stroke="#9DB389"/>
+  </g>
+  <g opacity="0.08">
+    <path d="M180 0V1200" stroke="#F1D38E"/>
+    <path d="M360 0V1200" stroke="#F1D38E"/>
+    <path d="M540 0V1200" stroke="#F1D38E"/>
+    <path d="M720 0V1200" stroke="#F1D38E"/>
+    <path d="M900 0V1200" stroke="#F1D38E"/>
+    <path d="M1080 0V1200" stroke="#F1D38E"/>
+    <path d="M1260 0V1200" stroke="#F1D38E"/>
+    <path d="M1440 0V1200" stroke="#F1D38E"/>
+  </g>
+
+  <ellipse cx="1060" cy="850" rx="350" ry="65" fill="url(#shadow)"/>
+
+  <g filter="url(#glow)">
+    <path d="M400 770L515 610C538 578 575 560 614 560H980C1042 560 1096 602 1112 662L1138 760H1215C1265 760 1308 800 1314 850L1326 942H1238C1231 888 1186 846 1130 846C1075 846 1029 888 1022 942H716C709 888 664 846 608 846C553 846 508 888 501 942H398L385 845C379 804 345 773 304 770H400Z" fill="url(#
