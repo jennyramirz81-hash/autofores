@@ -1,95 +1,101 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>AUTO FORES | Land Rover Specialist</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
 <header class="header">
-  <div class="container header__inner">
+  <div class="container">
     <div class="logo">AUTO FORES</div>
-    <a href="#contacto" class="btn btn--primary">Agendar</a>
+    <nav>
+      <a href="#servicios">Servicios</a>
+      <a href="#about">Taller</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="container hero__center">
-    <span class="eyebrow">Especialistas Land Rover</span>
+  <img src="assets/hero.jpg" class="hero-bg">
 
-```
-<h1>
-  Cuidado premium para <span>Land Rover</span><br>
-  en Bogotá
-</h1>
+  <div class="hero-overlay"></div>
 
-<p>
-  Diagnóstico preciso, reparación especializada y restauración de alto nivel.
-</p>
+  <div class="container hero-content">
+    <span class="tag">Land Rover Specialist</span>
 
-<div class="hero__actions">
-  <a href="#contacto" class="btn btn--primary">Agendar valoración</a>
-  <a href="https://wa.me/573142371493" class="btn btn--ghost">WhatsApp</a>
-</div>
-```
+    <h1>
+      Ingeniería y precisión para tu <span>Land Rover</span>
+    </h1>
 
+    <p>
+      Diagnóstico real, ejecución impecable y restauración de alto nivel.
+    </p>
+
+    <div class="buttons">
+      <a href="#contacto" class="btn primary">Solicitar valoración</a>
+      <a href="https://wa.me/573142371493" class="btn ghost">WhatsApp</a>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container grid-3">
-    <div class="card">
-      <h3>Diagnóstico preciso</h3>
-      <p>Identificamos el problema real sin improvisaciones.</p>
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
+  <div class="container">
+    <h2>Servicios especializados</h2>
+
+    <div class="grid">
+      <div class="card">Diagnóstico especializado</div>
+      <div class="card">Mantenimiento premium</div>
+      <div class="card">Reparación mecánica</div>
+      <div class="card">Restauración de clásicos</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section dark" id="about">
+  <div class="container about">
+    <div>
+      <h2>Un estándar, no un taller</h2>
+      <p>
+        AUTO FORES trabaja con criterio técnico real, sin improvisaciones.
+        Cada intervención está pensada para conservar valor y rendimiento.
+      </p>
     </div>
 
-```
-<div class="card">
-  <h3>Especialistas</h3>
-  <p>Enfoque exclusivo en Land Rover.</p>
-</div>
-
-<div class="card">
-  <h3>Restauración premium</h3>
-  <p>Recuperamos valor y estética original.</p>
-</div>
-```
-
+    <img src="assets/workshop.jpg">
   </div>
 </section>
 
-<section class="section dark">
-  <div class="container">
-    <h2 class="title">Servicios</h2>
+<!-- CONTACTO -->
+<section class="section" id="contacto">
+  <div class="container contact">
+    <h2>Agenda tu diagnóstico</h2>
 
-```
-<div class="grid-3">
-  <div class="card">Diagnóstico especializado</div>
-  <div class="card">Mantenimiento</div>
-  <div class="card">Reparación mecánica</div>
-  <div class="card">Electricidad</div>
-  <div class="card">Restauración</div>
-  <div class="card">Suspensión y frenos</div>
-</div>
-```
+    <form id="form">
+      <input type="text" placeholder="Nombre">
+      <input type="tel" placeholder="Celular">
+      <textarea placeholder="Cuéntanos tu caso"></textarea>
 
+      <button class="btn primary">Enviar</button>
+    </form>
   </div>
 </section>
 
-<section class="section contacto" id="contacto">
-  <div class="container">
-    <h2 class="title">Agenda tu servicio</h2>
-    <a href="https://wa.me/573142371493" class="btn btn--primary btn--big">
-      Ir a WhatsApp
-    </a>
-  </div>
-</section>
+<footer>
+  <p>© AUTO FORES</p>
+</footer>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
