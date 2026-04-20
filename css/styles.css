@@ -1,22 +1,136 @@
 :root {
-  --bg: #0B0B0C;
-  --bg-soft: #121213;
-  --panel: #151516;
-  --panel-2: #1C1C1E;
+--bg: #0B0B0C;
+--panel: #151516;
 
-  --line: rgba(255,255,255,0.06);
-  --line-strong: rgba(201,167,78,0.35);
+--text: #F5F5F5;
+--muted: #9A9A9D;
 
-  --text: #F5F5F5;
-  --muted: #9A9A9D;
+--primary: #C9A74E;
 
-  --primary: #C9A74E; /* DORADO */
-  --primary-dark: #8F7935;
+--line: rgba(255,255,255,0.06);
+}
 
-  --accent: #C9A74E;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
 
-  --shadow: 0 30px 80px rgba(0,0,0,0.6);
+body {
+background: var(--bg);
+color: var(--text);
+font-family: 'Inter', sans-serif;
+}
 
-  --radius: 20px;
-  --radius-sm: 14px;
+.container {
+width: 90%;
+max-width: 1200px;
+margin: auto;
+}
+
+.header {
+position: fixed;
+width: 100%;
+padding: 20px 0;
+background: rgba(0,0,0,0.6);
+backdrop-filter: blur(10px);
+}
+
+.header__inner {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-family: 'Playfair Display', serif;
+font-size: 20px;
+}
+
+.hero {
+height: 100vh;
+display: flex;
+align-items: center;
+text-align: center;
+
+background:
+linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+url('assets/hero.jpg') center/cover no-repeat;
+}
+
+.hero h1 {
+font-family: 'Playfair Display', serif;
+font-size: 4rem;
+margin-bottom: 20px;
+}
+
+.hero span {
+color: var(--primary);
+}
+
+.hero p {
+color: var(--muted);
+margin-bottom: 30px;
+}
+
+.hero__actions {
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+
+.btn {
+padding: 12px 26px;
+border-radius: 30px;
+border: 1px solid var(--line);
+cursor: pointer;
+}
+
+.btn--primary {
+border: 1px solid var(--primary);
+color: var(--primary);
+}
+
+.btn--primary:hover {
+background: var(--primary);
+color: black;
+}
+
+.btn--ghost {
+color: white;
+}
+
+.section {
+padding: 100px 0;
+}
+
+.dark {
+background: #111;
+}
+
+.grid-3 {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.card {
+padding: 30px;
+border: 1px solid var(--line);
+text-align: center;
+}
+
+.title {
+font-family: 'Playfair Display', serif;
+font-size: 2.5rem;
+margin-bottom: 40px;
+text-align: center;
+}
+
+.contacto {
+text-align: center;
+}
+
+.btn--big {
+font-size: 18px;
 }
