@@ -308,7 +308,7 @@ footer{
   font-size:14px;
   opacity:0.5;
 }
-/* ===== RESPONSIVE MOBILE ===== */
+/* ===== MOBILE PREMIUM ===== */
 @media (max-width: 768px){
 
   /* CONTENEDOR */
@@ -316,36 +316,89 @@ footer{
     width:92%;
   }
 
-  /* HEADER */
+  /* ===== HEADER + MENU ===== */
   .header .container{
-    flex-direction:column;
-    gap:10px;
+    flex-direction:row;
+    justify-content:space-between;
   }
 
+  /* botón hamburguesa */
+  .menu-toggle{
+    display:block;
+    width:28px;
+    height:20px;
+    position:relative;
+    cursor:pointer;
+  }
+
+  .menu-toggle span{
+    position:absolute;
+    width:100%;
+    height:2px;
+    background:#fff;
+    left:0;
+    transition:0.3s;
+  }
+
+  .menu-toggle span:nth-child(1){ top:0; }
+  .menu-toggle span:nth-child(2){ top:9px; }
+  .menu-toggle span:nth-child(3){ bottom:0; }
+
+  /* animación X */
+  .menu-toggle.active span:nth-child(1){
+    transform:rotate(45deg);
+    top:9px;
+  }
+  .menu-toggle.active span:nth-child(2){
+    opacity:0;
+  }
+  .menu-toggle.active span:nth-child(3){
+    transform:rotate(-45deg);
+    bottom:9px;
+  }
+
+  /* NAV oculto */
   .header nav{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#0b0b0b;
     display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    padding:20px 0;
+    transform:translateY(-120%);
+    transition:0.4s ease;
   }
 
-  /* HERO */
+  .header nav.active{
+    transform:translateY(0);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    height:90vh;
+  }
+
   h1{
-    font-size:34px;
+    font-size:32px;
   }
 
   .hero-content{
-    top:25%;
+    top:22%;
   }
 
   .hero-content p{
     font-size:15px;
+    line-height:1.5;
   }
 
   /* BOTONES */
   .buttons{
     flex-direction:column;
-    align-items:flex-start;
+    gap:10px;
   }
 
   .btn{
@@ -353,22 +406,20 @@ footer{
     text-align:center;
   }
 
-  /* GRID GENERAL */
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  /* ABOUT */
-  .about{
-    grid-template-columns:1fr;
-  }
-
-  /* CONTACTO */
+  /* ===== GRID GENERAL ===== */
+  .grid,
+  .about,
   .contact-grid{
     grid-template-columns:1fr;
+    gap:30px;
   }
 
-  /* BEFORE / AFTER */
+  /* ===== CARDS ===== */
+  .card{
+    padding:25px;
+  }
+
+  /* ===== BEFORE / AFTER ===== */
   .before-after{
     grid-template-columns:1fr;
   }
@@ -377,7 +428,7 @@ footer{
     aspect-ratio:4/3;
   }
 
-  /* CINEMA */
+  /* ===== CINEMA ===== */
   .cinema{
     height:60vh;
   }
@@ -385,12 +436,18 @@ footer{
   .cinema-text{
     left:5%;
     right:5%;
+    bottom:15%;
   }
 
-  /* MAPA */
+  /* ===== IMÁGENES GENERALES ===== */
+  img{
+    max-width:100%;
+    height:auto;
+  }
+
+  /* ===== MAPA ===== */
   .map iframe{
-    height:300px;
+    height:280px;
   }
 
 }
-
