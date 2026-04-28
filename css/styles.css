@@ -308,3 +308,89 @@ footer{
   font-size:14px;
   opacity:0.5;
 }
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px){
+
+  /* CONTENEDOR */
+  .container{
+    width:92%;
+  }
+
+  /* HEADER */
+  .header .container{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .header nav{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  /* HERO */
+  h1{
+    font-size:34px;
+  }
+
+  .hero-content{
+    top:25%;
+  }
+
+  .hero-content p{
+    font-size:15px;
+  }
+
+  /* BOTONES */
+  .buttons{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  /* GRID GENERAL */
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  /* ABOUT */
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  /* CONTACTO */
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  /* BEFORE / AFTER */
+  .before-after{
+    grid-template-columns:1fr;
+  }
+
+  .before-after img{
+    aspect-ratio:4/3;
+  }
+
+  /* CINEMA */
+  .cinema{
+    height:60vh;
+  }
+
+  .cinema-text{
+    left:5%;
+    right:5%;
+  }
+
+  /* MAPA */
+  .map iframe{
+    height:300px;
+  }
+
+}
+
