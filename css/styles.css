@@ -103,12 +103,22 @@ h1{
   left:10%;
 }
 
+/* ===== BEFORE / AFTER (ARREGLADO + BONUS) ===== */
 .before-after{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2, 1fr);
   gap:20px;
+  align-items:stretch;
 }
 
+.before-after img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* ===== SECCIONES ===== */
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
