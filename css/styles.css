@@ -20,10 +20,45 @@ body{
   margin:auto;
 }
 
+/* ===== TOPBAR ===== */
+.topbar{
+  background:#000;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  font-size:13px;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:20;
+}
+
+.topbar-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:6px 0;
+  color:#aaa;
+}
+
+.topbar-left,
+.topbar-right{
+  display:flex;
+  gap:20px;
+}
+
+.topbar a{
+  color:#ccc;
+  text-decoration:none;
+}
+
+.topbar a:hover{
+  color:var(--gold);
+}
+
 /* ===== HEADER ===== */
 .header{
   position:fixed;
   width:100%;
+  top:30px;
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
   border-bottom:1px solid rgba(255,255,255,0.05);
@@ -69,8 +104,8 @@ body{
   height:100%;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.9)
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0.85)
   );
 }
 
@@ -118,7 +153,6 @@ h1 span{
   font-size:14px;
 }
 
-/* BOTÓN PRINCIPAL */
 .btn.primary{
   background: linear-gradient(135deg, #c8a96a, #a8843b);
   color:#000;
@@ -132,7 +166,6 @@ h1 span{
   box-shadow:0 10px 30px rgba(200,169,106,0.3);
 }
 
-/* WHATSAPP */
 .btn.whatsapp{
   display:inline-flex;
   align-items:center;
@@ -192,10 +225,11 @@ h1 span{
 /* ===== SECCIONES ===== */
 .section{
   padding:100px 0;
+  border-bottom:1px solid rgba(255,255,255,0.03);
 }
 
 .section.dark{
-  background:#0f0f0f;
+  background: linear-gradient(#0f0f0f,#0b0b0b);
 }
 
 /* ===== GRID ===== */
@@ -205,7 +239,7 @@ h1 span{
   gap:20px;
 }
 
-/* ===== CARDS PREMIUM ===== */
+/* ===== CARDS ===== */
 .card{
   padding:40px;
   border:1px solid rgba(255,255,255,0.08);
@@ -224,7 +258,6 @@ h1 span{
 .cinema{
   height:80vh;
   position:relative;
-  overflow:hidden;
 }
 
 .cinema img{
@@ -251,12 +284,11 @@ h1 span{
   z-index:2;
 }
 
-/* ===== BEFORE / AFTER ===== */
+/* ===== BEFORE AFTER ===== */
 .before-after{
   display:grid;
-  grid-template-columns:repeat(2, 1fr);
+  grid-template-columns:1fr 1fr;
   gap:20px;
-  align-items:stretch;
 }
 
 .before-after img{
@@ -271,7 +303,6 @@ h1 span{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
-  align-items:center;
 }
 
 .about img{
@@ -286,19 +317,17 @@ h1 span{
   gap:40px;
 }
 
-.contact-info .item{
-  margin-bottom:15px;
-}
-
-.contact-cta{
-  margin-top:20px;
+.map{
+  width:100%;
+  overflow:hidden;
+  border-radius:10px;
 }
 
 .map iframe{
   width:100%;
-  height:400px;
-  filter:grayscale(1) invert(1);
-  border-radius:10px;
+  height:100%;
+  min-height:350px;
+  border:0;
 }
 
 /* ===== FOOTER ===== */
@@ -308,97 +337,33 @@ footer{
   font-size:14px;
   opacity:0.5;
 }
-/* ===== MOBILE PREMIUM ===== */
-@media (max-width: 768px){
 
-  /* CONTENEDOR */
-  .container{
-    width:92%;
-  }
+/* ===== MOBILE ===== */
+@media (max-width:768px){
 
-  /* ===== HEADER + MENU ===== */
-  .header .container{
-    flex-direction:row;
-    justify-content:space-between;
-  }
-
-  /* botón hamburguesa */
-  .menu-toggle{
-    display:block;
-    width:28px;
-    height:20px;
-    position:relative;
-    cursor:pointer;
-  }
-
-  .menu-toggle span{
-    position:absolute;
-    width:100%;
-    height:2px;
-    background:#fff;
-    left:0;
-    transition:0.3s;
-  }
-
-  .menu-toggle span:nth-child(1){ top:0; }
-  .menu-toggle span:nth-child(2){ top:9px; }
-  .menu-toggle span:nth-child(3){ bottom:0; }
-
-  /* animación X */
-  .menu-toggle.active span:nth-child(1){
-    transform:rotate(45deg);
-    top:9px;
-  }
-  .menu-toggle.active span:nth-child(2){
-    opacity:0;
-  }
-  .menu-toggle.active span:nth-child(3){
-    transform:rotate(-45deg);
-    bottom:9px;
-  }
-
-  /* NAV oculto */
-  .header nav{
-    position:absolute;
-    top:70px;
-    left:0;
-    width:100%;
-    background:#0b0b0b;
-    display:flex;
+  .topbar-content{
     flex-direction:column;
-    align-items:center;
-    gap:20px;
-    padding:20px 0;
-    transform:translateY(-120%);
-    transition:0.4s ease;
+    text-align:center;
   }
 
-  .header nav.active{
-    transform:translateY(0);
-  }
-
-  /* ===== HERO ===== */
-  .hero{
-    height:90vh;
+  .header{
+    top:60px;
   }
 
   h1{
-    font-size:32px;
+    font-size:30px;
+  }
+
+  .hero{
+    height:85vh;
   }
 
   .hero-content{
-    top:22%;
+    top:20%;
   }
 
-  .hero-content p{
-    font-size:15px;
-    line-height:1.5;
-  }
-
-  /* BOTONES */
   .buttons{
     flex-direction:column;
-    gap:10px;
   }
 
   .btn{
@@ -406,20 +371,9 @@ footer{
     text-align:center;
   }
 
-  /* ===== GRID GENERAL ===== */
   .grid,
   .about,
-  .contact-grid{
-    grid-template-columns:1fr;
-    gap:30px;
-  }
-
-  /* ===== CARDS ===== */
-  .card{
-    padding:25px;
-  }
-
-  /* ===== BEFORE / AFTER ===== */
+  .contact-grid,
   .before-after{
     grid-template-columns:1fr;
   }
@@ -428,26 +382,11 @@ footer{
     aspect-ratio:4/3;
   }
 
-  /* ===== CINEMA ===== */
   .cinema{
-    height:60vh;
+    height:55vh;
   }
 
-  .cinema-text{
-    left:5%;
-    right:5%;
-    bottom:15%;
-  }
-
-  /* ===== IMÁGENES GENERALES ===== */
-  img{
-    max-width:100%;
-    height:auto;
-  }
-
-  /* ===== MAPA ===== */
   .map iframe{
-    height:280px;
+    min-height:280px;
   }
-
 }
