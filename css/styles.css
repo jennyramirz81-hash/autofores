@@ -20,29 +20,25 @@ body{
   margin:auto;
 }
 
-/* ===== TOPBAR ===== */
+/* ===== TOPBAR (NUEVO PRO) ===== */
 .topbar{
   background:#000;
-  border-bottom:1px solid rgba(255,255,255,0.05);
   font-size:13px;
-  position:fixed;
-  width:100%;
-  top:0;
-  z-index:20;
+  border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .topbar-content{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  padding:6px 0;
-  color:#aaa;
+  padding:8px 0;
+  flex-wrap:wrap;
 }
 
 .topbar-left,
 .topbar-right{
   display:flex;
-  gap:20px;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
 .topbar a{
@@ -50,19 +46,20 @@ body{
   text-decoration:none;
 }
 
-.topbar a:hover{
-  color:var(--gold);
-}
-
 /* ===== HEADER ===== */
 .header{
   position:fixed;
+  top:35px; /* 👈 baja el header debajo del topbar */
   width:100%;
-  top:30px;
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
   border-bottom:1px solid rgba(255,255,255,0.05);
   z-index:10;
+  transition:0.3s;
+}
+
+.header.scrolled{
+  background:#000;
 }
 
 .header .container{
@@ -88,6 +85,7 @@ body{
   height:100vh;
   position:relative;
   overflow:hidden;
+  margin-top:90px; /* 👈 evita que el header tape */
 }
 
 .hero-bg{
@@ -104,8 +102,8 @@ body{
   height:100%;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.4),
-    rgba(0,0,0,0.85)
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.9)
   );
 }
 
@@ -138,6 +136,14 @@ h1 span{
   font-size:12px;
 }
 
+/* TRUST TEXT */
+.trust{
+  margin-top:15px;
+  font-size:14px;
+  opacity:0.8;
+  line-height:1.6;
+}
+
 /* ===== BOTONES ===== */
 .buttons{
   display:flex;
@@ -153,6 +159,7 @@ h1 span{
   font-size:14px;
 }
 
+/* BOTÓN PRINCIPAL */
 .btn.primary{
   background: linear-gradient(135deg, #c8a96a, #a8843b);
   color:#000;
@@ -166,6 +173,7 @@ h1 span{
   box-shadow:0 10px 30px rgba(200,169,106,0.3);
 }
 
+/* WHATSAPP */
 .btn.whatsapp{
   display:inline-flex;
   align-items:center;
@@ -225,11 +233,10 @@ h1 span{
 /* ===== SECCIONES ===== */
 .section{
   padding:100px 0;
-  border-bottom:1px solid rgba(255,255,255,0.03);
 }
 
 .section.dark{
-  background: linear-gradient(#0f0f0f,#0b0b0b);
+  background:#0f0f0f;
 }
 
 /* ===== GRID ===== */
@@ -258,6 +265,7 @@ h1 span{
 .cinema{
   height:80vh;
   position:relative;
+  overflow:hidden;
 }
 
 .cinema img{
@@ -284,10 +292,10 @@ h1 span{
   z-index:2;
 }
 
-/* ===== BEFORE AFTER ===== */
+/* ===== BEFORE / AFTER ===== */
 .before-after{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2, 1fr);
   gap:20px;
 }
 
@@ -303,6 +311,7 @@ h1 span{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
+  align-items:center;
 }
 
 .about img{
@@ -315,19 +324,30 @@ h1 span{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
-}
-
-.map{
-  width:100%;
-  overflow:hidden;
-  border-radius:10px;
+  align-items:center;
 }
 
 .map iframe{
   width:100%;
-  height:100%;
-  min-height:350px;
-  border:0;
+  height:400px;
+  border-radius:10px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.wa-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  z-index:999;
 }
 
 /* ===== FOOTER ===== */
@@ -341,83 +361,31 @@ footer{
 /* ===== MOBILE ===== */
 @media (max-width:768px){
 
-  .topbar-content{
-    flex-direction:column;
-    text-align:center;
-  }
-
   .header{
-    top:60px;
-  }
-
-  h1{
-    font-size:30px;
+    top:70px;
   }
 
   .hero{
-    height:85vh;
+    margin-top:120px;
+    height:90vh;
   }
 
-  .hero-content{
-    top:20%;
-  }
-
-  .buttons{
-    flex-direction:column;
-  }
-
-  .btn{
-    width:100%;
-    text-align:center;
+  h1{
+    font-size:32px;
   }
 
   .grid,
   .about,
-  .contact-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
   .before-after{
     grid-template-columns:1fr;
   }
 
-  .before-after img{
-    aspect-ratio:4/3;
-  }
-
-  .cinema{
-    height:55vh;
-  }
-
   .map iframe{
-    min-height:280px;
+    height:280px;
   }
-}
-/* ===== TRUST TEXT (HERO) ===== */
-.trust{
-  margin-top:15px;
-  font-size:14px;
-  opacity:0.8;
-  line-height:1.6;
-}
 
-/* ===== WHATSAPP FLOAT ===== */
-.wa-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  font-size:22px;
-  width:50px;
-  height:50px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  text-decoration:none;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
-  z-index:999;
-  transition:0.3s;
-}
-
-.wa-float:hover{
-  transform:scale(1.1);
 }
